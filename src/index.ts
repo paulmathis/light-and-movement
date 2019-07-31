@@ -1,9 +1,6 @@
-function component() {
-  const element = document.createElement("div");
+import CanvasContext from './CanvasContext';
 
-  element.innerHTML = "Test";
+const canvasCtx = new CanvasContext('tutorial');
 
-  return element;
-}
-
-document.body.appendChild(component());
+canvasCtx.drawRect({ x: 10, y: 10 }, 50, 50, 'rgb(200, 0, 0)');
+canvasCtx.drawRect({ x: 30, y: 30 }, 50, 50, 'rgba(1, 0, 200, 0.5)');
