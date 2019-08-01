@@ -17,4 +17,8 @@ export default class CanvasCtx {
     this.ctx.fillStyle = color;
     this.ctx.fillRect(cord.x, cord.y, width, height);
   }
+
+  context() {
+    return this.ctx;
+  }
 }
