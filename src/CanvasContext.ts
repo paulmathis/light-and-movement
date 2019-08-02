@@ -1,3 +1,8 @@
+type Vector = {
+  x: number;
+  y: number;
+};
+
 /** Creates a canvas context at the given canvas elementId */
 export default class CanvasCtx {
   canvas: HTMLCanvasElement;
@@ -9,13 +14,24 @@ export default class CanvasCtx {
 
   /** Draw a rectangle */
   drawRect(
-    cord: { x: number; y: number },
+    cords: Vector,
     width: number,
     height: number,
-    color: string | CanvasGradient | CanvasPattern
+    color: CanvasFillStrokeStyles['fillStyle']
   ) {
     this.ctx.fillStyle = color;
-    this.ctx.fillRect(cord.x, cord.y, width, height);
+    this.ctx.fillRect(cords.x, cords.y, width, height);
+  }
+
+  drawCircle(
+    cords: Vector,
+    radius: number,
+    color: CanvasFillStrokeStyles['fillStyle']
+  ) {
+    this.ctx.beginPath();
+    this.ctx.arc(cords.x, cords.y, radius, 0, Math.PI * 2, true);
+    this.ctx.fillStyle = color;
+    this.ctx.fill();
   }
 
   context() {
